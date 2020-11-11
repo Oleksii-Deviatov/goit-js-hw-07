@@ -18,16 +18,14 @@ const ref = {
 
 let value = parseInt(ref.htmlValue.textContent);
 
-function render() {
-  ref.htmlValue.textContent = value;
-}
+const render = () => ref.htmlValue.textContent = value;
 
-function decremenet() {
+const decremenet = () => {
     value -= 1;
     render();
 }
 
-function incremenet() {
+const incremenet = () => {
     value += 1;
     render();
 }
