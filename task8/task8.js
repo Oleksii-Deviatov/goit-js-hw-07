@@ -26,6 +26,13 @@ function createBoxes(amount) {
     let boxArray = Array.from({ length: amount }, () => undefined);
     boxArray = boxArray.map((el,i) => el = `<div id="box"style="width: ${30 + i * 10}px; height: ${30 + i * 10}px; background-color: #${randomHexColor()}; margin: 5px;"></div>`);
     ref.boxes.insertAdjacentHTML('beforeend', boxArray.join(''));
+    ref.input.value = '';
+}
+
+function createBoxesOnEnter(e) {
+   if (e.key === 'Enter') {
+        createBoxes(ref.input.valueAsNumber)
+    } 
 }
 
 function destroyBoxes() {
@@ -33,4 +40,5 @@ ref.boxes.innerHTML = "";
 }
 
 ref.create.addEventListener('click', () => createBoxes(ref.input.valueAsNumber));
+ref.input.addEventListener('keypress', (e) => createBoxesOnEnter(e));
 ref.clear.addEventListener('click',destroyBoxes);
