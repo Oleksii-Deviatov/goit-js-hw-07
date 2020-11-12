@@ -32,8 +32,3 @@ const incremenet = () => {
 
 ref.buttonDecrement.addEventListener('click' , decremenet);
 ref.buttonIncrement.addEventListener('click' , incremenet)
-
-
-
-
-
