@@ -11,6 +11,6 @@ const ref = {
     nameOutput: document.querySelector('#name-output'),
 }
 
-const handleInput = () => ref.nameOutput.textContent = ref.nameInput.value ? ref.nameInput.value : 'незнакомец!';
+const handleInput = () => ref.nameOutput.textContent = ref.nameInput.value ? ref.nameInput.value.replace(/\s+/g, '') : 'незнакомец!'; // игнорирует пробелы
 
 ref.nameInput.addEventListener('input', handleInput);

@@ -13,6 +13,8 @@
 
 // Создай функцию destroyBoxes(), которая очищает div#boxes.
 
+
+
 const ref = {
     input: document.querySelector('input'),
     create: document.querySelector('[data-action="render"]'),
@@ -22,13 +24,22 @@ const ref = {
 
 const randomHexColor = () => Math.floor(Math.random()*16777215).toString(16);
 
-function createBoxes(amount) {/
-    let boxArray = Array.from({ length: amount }, () => undefined);  //создает масив определенной длинны
-    // и если в элементе масива нет значения - map его не переберает,поэтому  и наполняю ундефайдами,  почему так? 
-    // не хотел использовать for =)
-    boxArray = boxArray.map((el,i) => el = `<div id="box"style="width: ${30 + i * 10}px; height: ${30 + i * 10}px; background-color: #${randomHexColor()}; margin: 5px;"></div>`);
-    ref.boxes.insertAdjacentHTML('beforeend', boxArray.join(''));
-    ref.input.value = '';
+function createBoxes(amount) {
+    // let boxArray = Array.from({ length: amount }, () => undefined);  //создает масив определенной длинны
+    // // и если в элементе масива нет значения - map его не переберает,поэтому  и наполняю ундефайдами,  почему так? 
+    // // не хотел использовать for =) так кода меньше
+    // boxArray = boxArray.map((el,i) => el = `<div id="box"style="width: ${30 + i * 10}px; height: ${30 + i * 10}px; background-color: #${randomHexColor()}; margin: 5px;"></div>`);
+    // ref.boxes.insertAdjacentHTML('beforeend', boxArray.join(''));
+    // ref.input.value = '';
+
+
+    //переписал  через for , мне вариант выше наравится больше
+    let squares = '';
+    for (let i = 0; i < amount; i += 1){
+        squares += `<div id="box"style="width: ${30 + i * 10}px; height: ${30 + i * 10}px; background-color: #${randomHexColor()}; margin: 5px;"></div>`
+    }
+        ref.boxes.insertAdjacentHTML('beforeend', squares);
+        ref.input.value = '';
 }
 
 function createBoxesOnEnter(e) {
