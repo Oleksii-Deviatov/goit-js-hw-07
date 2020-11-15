@@ -12,11 +12,23 @@ const inputRef = document.querySelector('#validation-input');
 
 const validation = () => {
     if (inputRef.value.length === parseInt(inputRef.dataset.length)) {
-        inputRef.classList.add('valid')
-        inputRef.classList.remove('invalid')
+        inputRef.classList.toggle('valid');
+
     } else {
-        inputRef.classList.add('invalid')  
+        inputRef.classList.toggle('invalid');
+        inputRef.value = '';
     }
 }
 
+// const validation = () => {
+//     if (inputRef.value.length === parseInt(inputRef.dataset.length)) {
+//         inputRef.classList.add('valid')
+//         inputRef.classList.remove('invalid')
+//     } else {
+//         inputRef.classList.add('invalid')  
+//     }
+// }
+
 inputRef.addEventListener('blur', validation)
+
+

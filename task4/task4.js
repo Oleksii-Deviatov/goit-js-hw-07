@@ -16,7 +16,7 @@ const ref = {
     htmlValue: document.querySelector('#value'),
 }
 
-let value = parseInt(ref.htmlValue.textContent);
+let value = parseInt(ref.htmlValue.textContent); // а если в html не 0  а другое значение ? 
 
 const render = () => ref.htmlValue.textContent = value;
 
